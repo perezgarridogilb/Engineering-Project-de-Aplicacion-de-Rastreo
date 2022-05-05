@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tienda.urls'
+ROOT_URLCONF = 'vehicles.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tienda.wsgi.application'
+WSGI_APPLICATION = 'vehicles.wsgi.application'
 
 
 # Password validation
