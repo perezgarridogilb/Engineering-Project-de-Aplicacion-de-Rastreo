@@ -87,8 +87,8 @@ class VehicleCreateView(CreateAPIView):
 
 class VehicleDetailView(RetrieveAPIView):
      
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = [IsAuthenticated]
      
     # Requiere saber de dónde lo va a recuperar 
     serializer_class = VehicleSerializer

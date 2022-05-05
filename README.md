@@ -29,4 +29,3 @@ mismo.
 - Bonus points si levantas esta API en un servicio como Amazon Web Services o
 Google Cloud o Heroku.
 
-# Sdk de Firebase en Python
