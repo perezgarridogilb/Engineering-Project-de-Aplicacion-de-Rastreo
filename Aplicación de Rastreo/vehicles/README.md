@@ -80,21 +80,13 @@ Leyendo información de respaldo
 python manage.py loaddata tienda_data.json
 ``` 
 
+## Unit Tests
+Número mínimo de carácteres
 
-## Validated_data 
-Validando data de ventas
+<img width="682" alt="Captura de Pantalla 2022-05-05 a la(s) 5 45 34 p m" src="https://user-images.githubusercontent.com/56992179/167037417-fe78ee86-ae00-418d-a33c-7dff8ea33362.png">
 
-### Body 
-Estructura del body raw/JSON
-``` 
-{
-"type_invoce": "0",
-"type_payment": "0",
-"adreese_send": "DirB3",
-"productos": []
-}
-
-``` 
-### Token
+## Token
 <img width="1392" alt="Captura de Pantalla 2022-03-23 a la(s) 8 59 11 p m" src="https://user-images.githubusercontent.com/56992179/159833302-337786c2-a67e-45b9-a409-c4efdf71359c.png">
+
+
 

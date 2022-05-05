@@ -1,4 +1,25 @@
-#
-tienda/applications/home/migrations/*
-#
-tienda/applications/users/migrations/*
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+secret.json
+fbkey.json
+migrations/
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+medias/
+__pycache__/
+.env/
+*.pdf
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*

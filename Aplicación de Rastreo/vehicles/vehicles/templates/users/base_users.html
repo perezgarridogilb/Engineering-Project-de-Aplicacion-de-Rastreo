@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load  static %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block js %} 
+
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-auth-compat.js"></script> 
+
+<!-- Biblioteca para enviar token -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    const firebaseApp = firebase.initializeApp({ 
+        apiKey: "AIzaSyCU5lc1d-l1--gi7MCpqhFIUSUqHVph3sc",
+        authDomain: "django-pro1.firebaseapp.com",
+        projectId: "django-pro1",
+        storageBucket: "django-pro1.appspot.com",
+        messagingSenderId: "162792305455",
+        appId: "1:162792305455:web:8488830599b552d47627da"
+     });
+    const db = firebaseApp.firestore();
+    const auth = firebaseApp.auth(); 
+    function login(){
+        var provider = new firebase.auth.GoogleAuthProvider(); 
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.idToken;
+            // The signed-in user info.
+
+            // Recuperar token id user
+            var user = result.user;
+            // ... 
+            user.getIdToken().then( 
+                function(idToken) { 
+                    console.log(idToken) 
+                    var data = {'token_id': idToken}
+                    /* Envíando data mediante método POST */
+                    axios.post('/api/google-login/', data).then(
+                        function(response) { 
+                            console.log('--'); 
+                            console.log(response); 
+                        }
+                    )
+                }).catch(function(error) { 
+                    // Handle error
+                }
+            );
+
+        }).catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential; 
+            // ...
+        });
+
+}
+ </script> 
+{% endblock js %}
